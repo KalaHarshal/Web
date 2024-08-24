@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Swachhta Abhiyaan</title>
+    <link rel="stylesheet" href="feedback.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Swachhta Abhiyaan - Feedback</h1>
+    </header>
+
+    <!-- Feedback Form Container -->
+    <div class="feedback-container">
+        <h2>We Value Your Feedback</h2>
+        <form id="feedback-form">
+            <!-- Location Selection Fields Column -->
+            <div class="column">
+                <h3>Select Location</h3>
+                <div class="location-selection">
+                    <label for="state">Select State <span class="required">*</span></label>
+                    <select id="state" name="state" required>
+                        <option value="">Select State</option>
+                        <!-- Dynamic options added by JavaScript -->
+                    </select>
+
+                    <label for="district">Select District <span class="required">*</span></label>
+                    <select id="district" name="district" disabled required>
+                        <option value="">Select District</option>
+                        <!-- Dynamic options added by JavaScript -->
+                    </select>
+
+                    <label for="area">Select Area <span class="required">*</span></label>
+                    <select id="area" name="area" disabled required>
+                        <option value="">Select Area</option>
+                        <!-- Dynamic options added by JavaScript -->
+                    </select>
+
+                    <label for="post-office">Select Post Office <span class="required">*</span></label>
+                    <select id="post-office" name="post-office" disabled required>
+                        <option value="">Select Post Office</option>
+                        <!-- Dynamic options added by JavaScript -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- Feedback Type Section -->
+            <div class="feedback-type-section">
+                <label for="feedback-type">Feedback Type <span class="required">*</span></label>
+                <select id="feedback-type" name="feedback-type" required>
+                    <option value="">Select Feedback Type</option>
+                    <option value="Cleanliness">Cleanliness</option>
+                    <option value="Service">Service</option>
+                    <option value="Staff Behavior">Staff Behavior</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+
+            <!-- Rating Section -->
+            <div class="rating-section">
+                <label for="rating">Rate Your Experience <span class="required">*</span></label>
+                <div class="star-rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+                <input type="hidden" id="rating" name="rating" required>
+            </div>
+
+            <!-- Message Field -->
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Swachhta Abhiyaan - Department of Posts</p>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="feedback.js"></script> <!-- Link to the external JS file -->
+</body>
+</html>
