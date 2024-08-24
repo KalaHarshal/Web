@@ -1,0 +1,237 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f8f2;
+    color: #4d4d4d;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #a9d1a9;
+    color: #333;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Add position relative */
+    justify-content: center; /* Center content horizontally */
+    text-align: center; /* Center text inside header */
+}
+
+.header-left {
+    position: absolute;
+    left: 20px; /* Adjust based on header padding */
+}
+
+.header-right {
+    position: absolute;
+    right: 20px; /* Adjust based on header padding */
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+header .logo {
+    height: 40px; /* Adjust based on your logo size */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    flex: 1;
+}
+
+#date-time {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #8ccf8c;
+}
+
+.container {
+    display: flex;
+    min-height: calc(100vh - 140px);
+    padding: 20px;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #d1e7d1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+    color: #4d4d4d;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #c0e4c0;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.reports {
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tiles {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.tile {
+    background-color: #c6e2c6;
+    color: #333;
+    padding: 30px;
+    width: 22%;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.tile:hover {
+    transform: scale(1.05);
+    background-color: #b3d4b3;
+}
+
+.camera-feed, .image-processing {
+    background-color: #f5f9f5;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid #a9d1a9;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+    border: none;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #d1e7d1;
+    color: #333;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f0f8f0;
+}
+
+footer {
+    background-color: #a9d1a9;
+    color: #333;
+    text-align: center;
+    padding: 15px 20px;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group select, 
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-group button {
+    padding: 10px 20px;
+    background-color: #a9d1a9;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-group button:hover {
+    background-color: #8ccf8c;
+}
+
+.report-output {
+    margin-top: 30px;
+}
+
+#reportPreview {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    min-height: 200px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Swachhta & LiFE Monitoring</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="logo.png" alt="Logo" class="logo">
+        </div>
+        <h1>Reports & Analytics - Swachhta & LiFE Monitoring</h1>
+        <div class="header-right">
+            <div id="date-time"></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Surveillance</a></li>
+                <li><a href="#">Alerts</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">User Management</a></li>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="reports">
+                <h2>Generate and View Reports</h2>
+                <form id="reportForm">
+                    <div class="form-group">
+                        <label for="state">State / Union Territories</label>
+                        <select id="state" name="state">
+                            <option value="">--Select State--</option>
+                            <option value="state1">State 1</option>
+                            <option value="state2">State 2</option>
+                            <!-- Add more states as needed -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="district">City / District</label>
+                        <select id="district" name="district">
+                            <option value="">--Select District--</option>
+                            <option value="district1">District 1</option>
+                            <option value="district2">District 2</option>
+                            <!-- Add more districts as needed -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="area">Area</label>
+                        <select id="area" name="area">
+                            <option value="">--Select Area--</option>
+                            <option value="area1">Area 1</option>
+                            <option value="area2">Area 2</option>
+                            <!-- Add more areas as needed -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postoffice">Post Office</label>
+                        <select id="postoffice" name="postoffice">
+                            <option value="">--Select Post Office--</option>
+                            <option value="po1">Post Office 1</option>
+                            <option value="po2">Post Office 2</option>
+                            <!-- Add more post offices as needed -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeline">Timeline</label>
+                        <input type="date" id="startdate" name="startdate" placeholder="Start Date">
+                        <input type="date" id="enddate" name="enddate" placeholder="End Date">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" onclick="generateReport()">Generate Report</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Contact: admin_support@postoffice.gov</p>
+        <p>&copy; 2024 Department of Posts</p>
+    </footer>
+
+    <script src="report.js"></script>
+</body>
+</html>
