@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('loginEmail').value;
         const password = document.getElementById('loginPassword').value;
         alert(`Login attempt with Email: ${email}`);
-         window.location.href='home.html'
+         window.location.href='home.html';
     });
 
     signupForm.addEventListener('submit', (e) => {
