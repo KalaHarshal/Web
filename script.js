@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Smooth scroll to a section when "Get Started" is clicked
 document.querySelector('.cta-button').addEventListener('click', function(event) {
     event.preventDefault();
-    document.querySelector('#dashboard').scrollIntoView({
-        behavior: 'smooth'
+     window.location.href='login.html';
     });
 });
 // Simple scroll animation for feature cards
