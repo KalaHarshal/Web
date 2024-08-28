@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rankings - Swachhta & LiFE Monitoring Dashboard</title>
+    <link rel="stylesheet" href="home.css"> <!-- Assuming the same CSS file is used -->
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="logo.png" alt="Logo" class="logo"> <!-- Add the path to your logo image -->
+        </div>
+        <div class="header-right">
+            <div id="date-time"></div>
+        </div>
+        <h1>Admin Dashboard - Rankings</h1>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="surveillance.html">Surveillance</a></li>
+                <li><a href="alerts.html">Alerts & Interventions</a></li>
+                <li><a href="rankings.html" class="active">Rankings</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="usermanagement.html">User Management</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="rankings">
+                <h2>Post Office Rankings</h2>
+                <p>Overview of post office performance based on various metrics.</p>
+
+                <div class="rankings-filters">
+                    <label for="metric">Select Metric:</label>
+                    <select id="metric">
+                        <option value="cleanliness">Cleanliness</option>
+                        <option value="compliance">Compliance</option>
+                        <option value="service">Service Quality</option>
+                    </select>
+                    <label for="date-range">Select Date Range:</label>
+                    <input type="date" id="start-date">
+                    <input type="date" id="end-date">
+                    <button type="button" onclick="filterRankings()">Apply Filters</button>
+                </div>
+
+                <table class="rankings-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Post Office</th>
+                            <th>Metric Value</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Post Office A</td>
+                            <td>95%</td>
+                            <td>Excellent</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Post Office B</td>
+                            <td>89%</td>
+                            <td>Good</td>
+                        </tr>
+                        <!-- Additional rows as needed -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Contact: admin_support@postoffice.gov</p>
+        <p>&copy; 2024 Department of Posts</p>
+    </footer>
+
+    <script src="home.js"></script>
+    <script>
+        // Update date and time every second
+        function updateDateTime() {
+            const now = new Date();
+            const dateTimeString = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
+            document.getElementById('date-time').innerText = dateTimeString;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // Initial call
+
+        // Function to handle filtering (dummy implementation)
+        function filterRankings() {
+            // Placeholder for filtering functionality
+            alert('Filter applied!');
+        }
+    </script>
+</body>
+</html>
