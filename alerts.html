@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Swachhta & LiFE Monitoring Alerts</title>
+    <link rel="stylesheet" href="alerts.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="logo.png" alt="Logo" class="logo"> <!-- Path to your logo image -->
+        </div>
+        <div class="header-right">
+            <div id="date-time"></div>
+        </div>
+        <h1>Alerts- Swachhta & LiFE Monitoring</h1>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">Surveillance</a></li>
+                <li><a href="alerts.html">Alerts</a></li>
+                <li><a href="#">Interventions</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">User Management</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="alerts">
+                <h2>Alerts & Interventions</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Post Office</th>
+                            <th>Deviation Detected</th>
+                            <th>Timestamp</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="alerts-table">
+                        <!-- Alerts populated dynamically from JS -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Contact: admin_support@postoffice.gov</p>
+        <p>&copy; 2024 Department of Posts</p>
+    </footer>
+
+    <script src="alerts.js"></script>
+    <script>
+        // Update date and time every second
+        function updateDateTime() {
+            const now = new Date();
+            const dateTimeString = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
+            document.getElementById('date-time').innerText = dateTimeString;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // Initial call
+    </script>
+</body>
+</html>
