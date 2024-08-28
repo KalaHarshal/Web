@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="header-left">
-            <img src="logo.png" alt="Logo" class="logo">
+            <img src="DoP_logo.png" alt="Logo" class="logo">
         </div>
         <h1>Reports & Analytics - Swachhta & LiFE Monitoring</h1>
         <div class="header-right">
@@ -24,10 +24,14 @@
                 <li><a href="#">Surveillance</a></li>
                 <li><a href="alerts.html">Alerts & Interventions</a></li>
                 <li><a href="rankings.html">Rankings</a></li>
-                <li><a href="reports.html">Reports</a></li>
+                <li><a href="reports.html">Reports & Analytics</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">User Management</a></li>
-                <li><a href="login.html" id="logout">Logout</a></li>
+                <li class="logout">
+                    <form id="logout-form" action="logout.php" method="post">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
             </ul>
         </aside>
 

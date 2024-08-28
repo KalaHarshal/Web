@@ -19,9 +19,9 @@ header {
     color: #333;
     padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative; /* Add position relative */
-    justify-content: center; /* Center content horizontally */
-    text-align: center; /* Center text inside header */
+    position: relative; 
+    justify-content: center; 
+    text-align: center; 
 }
 
 .header-left {
@@ -37,7 +37,7 @@ header {
 }
 
 header .logo {
-    height: 40px; /* Adjust based on your logo size */
+    height: 80px; /* Adjust based on your logo size */
 }
 
 header h1 {
@@ -81,6 +81,9 @@ nav ul li a:hover {
 }
 
 .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes space between items */
     width: 250px;
     background-color: #d1e7d1;
     padding: 20px;
@@ -90,6 +93,8 @@ nav ul li a:hover {
 
 .sidebar ul {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar ul li {
@@ -107,6 +112,10 @@ nav ul li a:hover {
 
 .sidebar ul li a:hover {
     background-color: #c0e4c0;
+}
+
+.sidebar ul li.logout {
+    margin-top: auto;
 }
 
 .content {
@@ -234,4 +243,23 @@ footer {
     border: 1px solid #ccc;
     min-height: 200px;
     margin-bottom: 20px;
+}
+
+#logout-form {
+    margin: 0;
+    padding: 0;
+}
+
+#logout-form button {
+    padding: 10px 20px;
+    background-color: #a9d1a9;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#logout-form button:hover {
+    background-color: #8ccf8c;
 }

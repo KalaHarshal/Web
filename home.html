@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="header-left">
-            <img src="logo.png" alt="Logo" class="logo"> <!-- Add the path to your logo image -->
+            <img src="DoP_logo.png" alt="Logo" class="logo">
         </div>
         <div class="header-right">
             <div id="date-time"></div>
@@ -27,7 +27,11 @@
                 <li><a href="reports.html">Reports</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">User Management</a></li>
-                <li><a href="login.html">Logout</a></li>
+                <li class="logout">
+                    <form id="logout-form" action="logout.php" method="post">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
             </ul>
         </aside>
 
@@ -92,8 +96,9 @@
         // Update date and time every second
         function updateDateTime() {
             const now = new Date();
-            const dateTimeString = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
-            document.getElementById('date-time').innerText = dateTimeString;
+            const dateString = now.toLocaleDateString();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('date-time').innerHTML = dateString + '<br>' + timeString;
         }
 
         setInterval(updateDateTime, 1000);

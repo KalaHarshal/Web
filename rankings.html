@@ -9,12 +9,12 @@
 <body>
     <header>
         <div class="header-left">
-            <img src="logo.png" alt="Logo" class="logo"> <!-- Add the path to your logo image -->
+            <img src="DoP_logo.png" alt="Logo" class="logo"> <!-- Add the path to your logo image -->
         </div>
         <div class="header-right">
             <div id="date-time"></div>
         </div>
-        <h1>Admin Dashboard - Rankings</h1>
+        <h1>Rankings - Swachhta & LiFE Monitoring</h1>
     </header>
 
     <div class="container">
@@ -23,11 +23,15 @@
                 <li><a href="home.html">Home</a></li>
                 <li><a href="surveillance.html">Surveillance</a></li>
                 <li><a href="alerts.html">Alerts & Interventions</a></li>
-                <li><a href="rankings.html" class="active">Rankings</a></li>
-                <li><a href="reports.html">Reports</a></li>
+                <li><a href="rankings.html">Rankings</a></li>
+                <li><a href="reports.html">Reports & Analytics</a></li>
                 <li><a href="settings.html">Settings</a></li>
                 <li><a href="usermanagement.html">User Management</a></li>
-                <li><a href="login.html">Logout</a></li>
+                <li class="logout">
+                    <form id="logout-form" action="logout.php" method="post">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
             </ul>
         </aside>
 
