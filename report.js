@@ -65,21 +65,31 @@ function generateReport() {
     reportWindow.document.close();
 }
 
-function updateDateTime() {
-    const now = new Date();
-    const options = {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-    };
-    document.getElementById('date-time').innerText = now.toLocaleDateString('en-US', options);
-}
+     function updateDateTime() {
+            const now = new Date();
+    
+            // Get day, month, and year
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            const year = now.getFullYear();
+    
+            // Format date as DD/MM/YYYY
+            const dateString = `${day}/${month}/${year}`;
+    
+            // Format time as HH:MM AM/PM
+            const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
+            let timeString = now.toLocaleTimeString(undefined, timeOptions);
+    
+            // Convert AM/PM to uppercase
+            timeString = timeString.toUpperCase();
+    
+            // Combine date and time with a line break
+            const dateTimeString = `${dateString}<br>${timeString}`;
+    
+            // Update the innerHTML of the element with id 'date-time'
+            document.getElementById('date-time').innerHTML = dateTimeString;
+        }
+        
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // Initial call
 
-// Update date and time every second
-setInterval(updateDateTime, 1000);
-
-// Initial call to display the date and time immediately
-updateDateTime();
