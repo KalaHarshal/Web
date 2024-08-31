@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelector('.content').appendChild(imgElement); // Append image to .content
     }
 });
+const Logout = () => {
 document.getElementById('logout-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission
 
@@ -59,3 +60,4 @@ document.getElementById('logout-form').addEventListener('submit', function(event
         return;
     }
 });
+}
