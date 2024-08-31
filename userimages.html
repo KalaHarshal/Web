@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Images</title>
+    <link rel="stylesheet" href="home.css"> <!-- Assuming the same CSS file is used -->
+    <style>
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .content img {
+            max-width: 300px; /* Adjust as needed */
+            max-height: 200px; /* Adjust as needed */
+            object-fit: cover; /* Ensures images are scaled to cover the box */
+            border: 1px solid #ddd; /* Optional: add a border */
+            border-radius: 5px; /* Optional: rounded corners */
+        }
+        .content p {
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="DoP_logo.png" alt="Logo" class="logo"> <!-- Add the path to your logo image -->
+        </div>
+        <div class="header-right">
+            <div id="date-time"></div>
+        </div>
+        <h1>User Images</h1>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="userimages.html">User Images</a></li>
+                <li><a href="#">Surveillance</a></li>
+                <li><a href="alerts.html">Alerts & Interventions</a></li>
+                <li><a href="rankings.html">Rankings</a></li>
+                <li><a href="reports.html">Reports & Analytics</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="usermanagement.html">User Management</a></li>
+                <li class="logout">
+                    <form id="logout-form" action="logout.php" method="post">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <!-- Images will be dynamically loaded here -->
+        </main>
+    </div>
+
+    <footer>
+        <p>Contact: admin_support@postoffice.gov</p>
+        <p>&copy; 2024 Department of Posts</p>
+    </footer>
+
+    <script type="module">
+        import { fetchAllImages } from './firebase.js';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const folderPath = 'images'; // Path to your folder in Firebase Storage
+            const images = await fetchAllImages(folderPath);
+
+            if (images && images.length > 0) {
+                images.forEach(image => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = image.url;
+                    imgElement.alt = image.name || 'Image'; // Optional: use image name if available
+                    document.querySelector('.content').appendChild(imgElement); // Append image to .content
+                });
+            } else {
+                const noImagesMessage = document.createElement('p');
+                noImagesMessage.textContent = 'No images found.';
+                document.querySelector('.content').appendChild(noImagesMessage);
+            }
+        });
+    </script>
+</body>
+</html>
