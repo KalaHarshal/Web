@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Swachhta & LiFE Monitoring Dashboard</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="DoP_logo.png" alt="Logo" class="logo">
+        </div>
+        <div class="header-right">
+            <div id="date-time"></div>            
+        </div>        
+        <h1>Admin Dashboard - Swachhta & LiFE Monitoring</h1>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">Surveillance</a></li>
+                <li><a href="alerts.html">Alerts & Interventions</a></li>
+                <li><a href="rankings.html">Rankings</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">User Management</a></li>
+                <li class="logout">
+                    <form id="logout-form" action="logout.php" method="post">
+                        <button type="submit" class="logout-button">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="overview">
+                <h2>Dashboard Overview</h2>
+                <div class="tiles">
+                    <div class="tile">Total Post Offices Monitored: 100</div>
+                    <div class="tile">Post Offices Meeting Standards: 80</div>
+                    <div class="tile">Post Offices with Deviations: 20</div>
+                    <div class="tile">Active Alerts: 5</div>
+                </div>
+            </section>
+
+            <section class="surveillance">
+                <h2>AI-Powered Surveillance & Monitoring</h2>
+                <div class="camera-feed">
+                    <p>Live Camera Feed Here</p>
+                </div>
+                <div class="image-processing">
+                    <p>AI Analysis Results Here</p>
+                </div>
+            </section>
+
+            <section class="alerts">
+                <h2>Alerts & Interventions</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Post Office</th>
+                            <th>Deviation Detected</th>
+                            <th>Timestamp</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Post Office 1</td>
+                            <td>Unclean Area</td>
+                            <td>2024-08-22 10:00 AM</td>
+                            <td>Pending</td>
+                        </tr>
+                        <!-- Additional rows as needed -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="reports">
+                <h2>Reports & Analytics</h2>
+                <p>Data Visualization and Report Generation for Admin Review</p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Contact: admin_support@postoffice.gov</p>
+        <p>&copy; 2024 Department of Posts</p>
+    </footer>
+
+    <script src="home.js"></script>
+    <script>
+        // Update date and time every second
+        function updateDateTime() {
+            const now = new Date();
+    
+            // Get day, month, and year
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            const year = now.getFullYear();
+    
+            // Format date as DD/MM/YYYY
+            const dateString = `${day}/${month}/${year}`;
+    
+            // Format time as HH:MM AM/PM
+            const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
+            let timeString = now.toLocaleTimeString(undefined, timeOptions);
+    
+            // Convert AM/PM to uppercase
+            timeString = timeString.toUpperCase();
+    
+            // Combine date and time with a line break
+            const dateTimeString = `${dateString}<br>${timeString}`;
+    
+            // Update the innerHTML of the element with id 'date-time'
+            document.getElementById('date-time').innerHTML = dateTimeString;
+        }
+        
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // Initial call
+
+    </script>
+</body>
+</html>
