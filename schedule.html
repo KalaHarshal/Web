@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Assign Schedule</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        .assign-schedule {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .assign-schedule h2 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #2980b9;
+            outline: none;
+        }
+
+        .assign-schedule button {
+            background-color: #2980b9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .assign-schedule button:hover {
+            background-color: #21618c;
+        }
+
+        .schedule-list {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .schedule-list h2 {
+            margin-top: 0;
+        }
+
+        .schedule-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .schedule-list ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .schedule-list ul li:last-child {
+            border-bottom: none;
+        }
+
+     
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img src="DoP_logo.png" alt="Logo" class="logo">
+        </div>
+        <div class="header-right">
+            <div id="date-time"></div>
+        </div>
+        <h1>Admin Dashboard - Assign Schedule</h1>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="schedule.html">Assign Schedule</a></li>
+                <li><a href="alerts.html">Alerts & Interventions</a></li>
+                <li><a href="rankings.html">Rankings</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="userimages.html">User Images</a></li>
+                <li class="logout">
+                    <form id="logout-form" action="logout.php" method="post">
+                        <button type="submit" class="logout-button">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section class="assign-schedule">
+                <h2>Assign a Schedule</h2>
+                <form id="schedule-form">
+                    <div class="form-group">
+                        <label for="task">Task</label>
+                        <input type="text" id="task" placeholder="Enter task" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" id="time" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assignee">Assignee</label>
+                        <select id="assignee" required>
+                            <option value="">Select an employee</option>
+                            <option value="Employee 1">Employee 1</option>
+                            <option value="Employee 2">Employee 2</option>
+                            <option value="Employee 3">Employee 3</option>
+                            <option value="Employee 4">Employee 4</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Assign</button>
+                </form>
+            </section>
+
+            <section class="schedule-list">
+                <h2>Assigned Schedules</h2>
+                <ul id="schedule-list"></ul>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Contact: admin_support@postoffice.gov</p>
+        <p>&copy; 2024 Department of Posts</p>
+    </footer>
+
+    <script src="home.js"></script>
+    <script>
+        // Update date and time every second
+        function updateDateTime() {
+            const now = new Date();
+
+            // Get day, month, and year
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            const year = now.getFullYear();
+
+            // Format date as DD/MM/YYYY
+            const dateString = `${day}/${month}/${year}`;
+
+            // Format time as HH:MM AM/PM
+            const timeOptions = {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            };
+            let timeString = now.toLocaleTimeString(undefined, timeOptions);
+
+            // Convert AM/PM to uppercase
+            timeString = timeString.toUpperCase();
+
+            // Combine date and time with a line break
+            const dateTimeString = `${dateString}<br>${timeString}`;
+
+            // Update the innerHTML of the element with id 'date-time'
+            document.getElementById('date-time').innerHTML = dateTimeString;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // Initial call
+
+        // Handling form submission and adding schedule items
+        document.getElementById('schedule-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form values
+            const task = document.getElementById('task').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const assignee = document.getElementById('assignee').value;
+
+            // Create a new list item
+            const li = document.createElement('li');
+            li.textContent = `${task} - ${date} ${time} (Assigned to: ${assignee})`;
+
+            // Add the list item to the schedule list
+            document.getElementById('schedule-list').appendChild(li);
+
+            // Clear the form
+            document.getElementById('schedule-form').reset();
+        });
+    </script>
+</body>
+
+</html>
