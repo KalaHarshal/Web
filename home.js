@@ -43,3 +43,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelector('.content').appendChild(imgElement); // Append image to .content
     }
 });
+document.getElementById('logout-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Show a confirmation alert before logging out
+    const confirmLogout = confirm("Are you sure you want to log out?");
+
+    if (confirmLogout) {
+        // Perform any additional logout logic here if needed
+
+        // Redirect to the login page
+        window.location.href = 'login.html';
+    } else {
+        // If the user cancels the logout, do nothing
+        return;
+    }
+});
