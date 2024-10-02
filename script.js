@@ -7,7 +7,7 @@ document.querySelector('.cta-button').addEventListener('click', function(event) 
     event.preventDefault();
      window.location.href='login.html';
     });
-});
+
 // Simple scroll animation for feature cards
 window.addEventListener('scroll', () => {
     const featureCards = document.querySelectorAll('.feature-card');
